@@ -1,0 +1,693 @@
+/* Modern CSS Reset and Variables */
+:root {
+    --primary-color: #4A90E2;
+    --secondary-color: #28a745;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --dark-color: #343a40;
+    --light-color: #f8f9fa;
+    --border-color: #dee2e6;
+    --shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+    --table-header-bg: #f8f9fa;
+    --table-stripe-bg: rgba(240, 240, 240, 0.5);
+    --table-hover-bg: rgba(74, 144, 226, 0.05);
+    --table-border: #a2a2a2aa;
+    --table-scroll-size: 6px;
+    --table-header-color: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General Styles */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--light-color);
+    line-height: 1.6;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    width: 95%;
+}
+
+/* Card Styles */
+.card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+/* Posts Grid Layout */
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem 0;
+}
+
+/* Post Card Styles */
+.post-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0;
+    overflow: hidden;
+}
+.post-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+}
+
+.post-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.post-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.post-image-placeholder {
+    width: 100%;
+    height: 200px;
+    background-color: var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--dark-color);
+}
+
+.post-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+}
+
+.post-title {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.post-title a {
+    color: var(--dark-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.post-title a:hover {
+    color: var(--primary-color);
+}
+
+.post-description {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.post-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--border-color);
+    background-color: var(--light-color);
+}
+
+.post-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Post Detail Styles */
+.post-detail-card {
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.post-detail-header {
+    margin-bottom: 2rem;
+}
+
+.post-detail-header h1 {
+    margin-bottom: 1rem;
+    color: var(--dark-color);
+}
+
+.post-detail-image {
+    margin: 2rem 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.post-detail-image img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+}
+
+.post-detail-content {
+    margin: 2rem 0;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.post-detail-actions {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 2rem;
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-warning {
+    background-color: var(--warning-color);
+    color: var(--dark-color);
+}
+
+.btn-danger {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Animation Classes */
+.fade-in {
+    animation: fadeIn 0.3s ease-in;
+}
+/* Enhanced Form Styles */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--dark-color);
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    transition: var(--transition);
+    font-size: 1rem;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+.form-control.is-invalid {
+    border-color: var(--danger-color);
+}
+
+/* Navbar Styles */
+nav {
+    background-color: var(--light-color);
+    box-shadow: var(--shadow);
+    padding: 1rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: var(--dark-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+/* Logout Button Style */
+.btn-logout {
+    background-color: var(--danger-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Form Styles */
+.form-container {
+    margin: 2rem 0;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    transition: var(--transition);
+    font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+/* Submit Button Style */
+.btn-submit {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+
+/* Enhanced Table Styles */
+.table-container {
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.responsive-table {
+    overflow-x: auto;
+    border-radius: 8px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) transparent;
+}
+
+.responsive-table::-webkit-scrollbar {
+    height: var(--table-scroll-size);
+}
+
+.responsive-table::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.responsive-table::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    box-shadow: var(--shadow);
+    border-radius: 8px;
+    overflow: hidden;
+    min-width: 640px; /* Ensures table doesn't get too cramped */
+}
+
+th {
+    background-color: var(--primary-color);
+    color: var(--table-header-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 1rem 1.5rem;
+    text-align: left;
+    border-bottom: 2px solid var(--table-border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+td {
+    padding: 1rem 1.5rem;
+    background-color: transparent;
+    border-bottom: 1px solid var(--table-border);
+    color: var(--dark-color);
+    transition: background-color var(--transition);
+}
+
+/* Striped Rows */
+tbody tr:nth-child(even) {
+    background-color: var(--table-stripe-bg);
+}
+
+/* Row Hover Effect */
+tbody tr {
+    transition: background-color var(--transition);
+}
+
+tbody tr:hover {
+    background-color: var(--table-hover-bg);
+}
+
+/* Table Action Buttons */
+.table-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+}
+
+.table-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.table-btn-edit {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.table-btn-delete {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+.table-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Empty State */
+.table-empty {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: #666;
+    font-style: italic;
+}
+
+/* Loading State */
+.table-loading td {
+    position: relative;
+    overflow: hidden;
+}
+
+.table-loading td::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    animation: shimmer 1.5s infinite;
+}
+
+
+/* Button Styles */
+button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color var(--transition);
+    font-size: 0.875rem; /* Adjusts button font size */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Button shadow */
+}
+
+button:hover {
+    background-color: rgba(74, 144, 226, 0.8); /* Darken on hover */
+}
+
+/* Active/Focus Effect for Buttons */
+button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.5); /* Focus shadow */
+}
+
+/* Basic pagination container style */
+.pagination {
+    display: flex;
+    justify-content: center; /* Center the pagination */
+    margin: 20px 0; /* Add vertical margin */
+    width: auto; /* Set to auto or a specific value like 100% */
+    padding: 10px; /* Add padding to the container */
+}
+
+/* Style for pagination links */
+.pagination a,
+.pagination span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 10px; /* Increased padding for compactness and better arrow display */
+    margin: 4px 4px; /* Space between pagination items */
+    font-size: 0.875rem; /* Smaller font size */
+    
+    border-radius: 4px; /* Rounded corners */
+    text-decoration: none; /* Remove underline from links */
+    color: #ffffff; /* Dark gray text color */
+    background-color: rgb(41, 41, 41); /* White background */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+/* Additional CSS to ensure the form aligns nicely */
+.d-flex {
+    display: flex; /* Use flexbox layout */
+    align-items: center; /* Center items vertically */
+}
+
+.form-control {
+    flex: 1; /* Allow input to grow and fill available space */
+}
+.invalid-feedback{
+    color: red;
+}
+/* Hover and active states */
+.pagination a:hover {
+    background-color: #f3f4f6; /* Light gray background on hover */
+    color: #151a22; /* Darker text color on hover */
+}
+
+/* Active page style */
+.pagination span[aria-current="page"] {
+    background-color: #a1a1a29a; /* Blue background for the active page */
+    cursor: not-allowed;
+}
+
+/* Style for disabled links */
+.pagination span[aria-disabled="true"] {
+    color: #1868f1; /* Gray color for disabled links */
+    /* background-color: #4b4b4b; Light gray background for disabled links */
+    /* border-color: #e5e7eb; Match border with background */
+    cursor: not-allowed; /* Change cursor to indicate disabled state */
+}
+svg {
+    width: 30px;
+}
+
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .posts-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .post-detail-actions {
+        flex-direction: column;
+    }
+
+    .post-detail-actions .btn {
+        width: 100%;
+    }
+
+    .post-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    th, td {
+        padding: 0.5rem; /* Reduce padding on smaller screens */
+    }
+
+    button {
+        padding: 0.4rem 0.8rem; /* Adjust button padding */
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --light-color: #1a1a1a;
+        --dark-color: #ffffff;
+        --border-color: #2d2d2d;
+    }
+
+    body {
+        background-color: #121212;
+        color: #ffffff;
+    }
+
+    .card {
+        background-color: #1e1e1e;
+    }
+
+    .post-description {
+        color: #999;
+    }
+
+    .post-meta {
+        color: #999;
+    }
+
+    .post-image-placeholder {
+        background-color: #2d2d2d;
+        color: #999;
+    }
+    
+    .post-footer {
+        background-color: #1a1a1a;
+    }
+}
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .table-container {
+        padding: 1rem;
+        margin: 1rem 0;
+    }
+
+    .table-header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+    }
+
+    th, td {
+        padding: 0.75rem 1rem;
+    }
+
+    .table-actions {
+        flex-wrap: wrap;
+    }
+
+    .table-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .table-container {
+        background: #1e1e1e;
+    }
+
+    th {
+        background-color: var(--primary-color);
+    }
+
+    td {
+        color: #e5e7eb;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: rgba(255, 255, 255, 0.03);
+    }
+
+    tbody tr:hover {
+        background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .table-empty {
+        color: #999;
+    }
+}
+/* Utility Classes */
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.d-flex { display: flex; }
+.justify-between { justify-content: space-between; }
+.align-center { align-items: center; }
+.d-inline { display: inline; }
